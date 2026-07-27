@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de Privacidad — FitSync</title>
+<style>
+  :root { color-scheme: light; }
+  body { font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+         line-height:1.65; color:#1a1a1a; background:#fff; max-width:760px;
+         margin:0 auto; padding:32px 20px 80px; }
+  h1 { font-size:28px; border-bottom:3px solid #FF5A1F; padding-bottom:12px; }
+  h2 { font-size:21px; margin-top:38px; color:#0A0B0D; }
+  h3 { font-size:17px; margin-top:26px; }
+  a { color:#d1490f; }
+  code { background:#f4f4f5; padding:2px 5px; border-radius:4px; font-size:90%; }
+  table { border-collapse:collapse; width:100%; margin:18px 0; font-size:14px; }
+  th,td { border:1px solid #e3e3e6; padding:8px 10px; text-align:left; vertical-align:top; }
+  th { background:#fafafa; }
+  blockquote { border-left:4px solid #FF5A1F; margin:18px 0; padding:6px 16px; background:#fff7f3; }
+  hr { border:0; border-top:1px solid #e6e6e9; margin:32px 0; }
+</style>
+</head>
+<body>
+<h1 id="politica-de-privacidad-de-fitsync">Política de Privacidad de FitSync</h1>
+<p><strong>Última actualización: 27 de julio de 2026</strong>
+<strong>Versión: 1.0 (borrador para revisión legal)</strong></p>
+<hr />
+<h2 id="1-responsable-del-tratamiento">1. Responsable del tratamiento</h2>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Dato</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Responsable</td>
+<td>Urko Lizarralde</td>
+</tr>
+<tr>
+<td>Condición</td>
+<td>Persona física, desarrollador individual</td>
+</tr>
+<tr>
+<td>NIF</td>
+<td><code>[PENDIENTE: NIF/DNI del responsable]</code></td>
+</tr>
+<tr>
+<td>Domicilio</td>
+<td><code>[PENDIENTE: dirección postal completa]</code>, Bilbao (Bizkaia), España</td>
+</tr>
+<tr>
+<td>Correo de contacto en materia de privacidad</td>
+<td><code>[PENDIENTE: email de contacto]</code></td>
+</tr>
+<tr>
+<td>Correo para ejercicio de derechos</td>
+<td><code>[PENDIENTE: email de contacto]</code></td>
+</tr>
+<tr>
+<td>Sitio web</td>
+<td><code>[PENDIENTE: URL pública donde se aloja esta política]</code></td>
+</tr>
+<tr>
+<td>Delegado de Protección de Datos (DPD)</td>
+<td>No designado <code>[PENDIENTE: confirmar tras revisión legal si procede designarlo]</code></td>
+</tr>
+</tbody>
+</table>
+<p>FitSync es una aplicación móvil de preparación física para opositores a cuerpos de
+seguridad y emergencias (bomberos, policía, ejército, etc.). Planifica el
+entrenamiento, evalúa las marcas del usuario contra los baremos oficiales de cada
+convocatoria y ofrece seguimiento mediante un entrenador basado en inteligencia
+artificial.</p>
+<hr />
+<h2 id="2-a-quien-se-dirige-esta-politica">2. A quién se dirige esta política</h2>
+<p>A todas las personas usuarias de la aplicación FitSync en iOS y Android, incluidas
+las que participan en las fases de prueba (TestFlight y pruebas cerradas de Google
+Play).</p>
+<hr />
+<h2 id="3-datos-que-tratamos">3. Datos que tratamos</h2>
+<p>FitSync <strong>no recoge datos de forma oculta ni en segundo plano</strong>: todos los datos
+proceden de lo que el usuario introduce en la aplicación o de lo que la aplicación
+calcula a partir de esa información. La app <strong>no accede a la ubicación, a la cámara,
+al micrófono, a la agenda de contactos ni al calendario del dispositivo</strong>.</p>
+<h3 id="31-datos-de-cuenta-e-identificacion">3.1 Datos de cuenta e identificación</h3>
+<table>
+<thead>
+<tr>
+<th>Dato</th>
+<th>Origen</th>
+<th>Dónde se guarda</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dirección de correo electrónico</td>
+<td>La proporciona el usuario al registrarse</td>
+<td>Supabase Auth + tabla <code>users</code></td>
+</tr>
+<tr>
+<td>Contraseña (cifrada mediante hash, nunca en claro)</td>
+<td>La proporciona el usuario</td>
+<td>Supabase Auth</td>
+</tr>
+<tr>
+<td>Identificadores internos de cuenta (<code>auth_user_id</code>, <code>id</code> numérico de usuario)</td>
+<td>Generados por el sistema</td>
+<td>Supabase</td>
+</tr>
+<tr>
+<td>Fecha de alta</td>
+<td>Generado por el sistema</td>
+<td><code>users.created_at</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-datos-de-perfil-fisico-y-personal">3.2 Datos de perfil físico y personal</h3>
+<table>
+<thead>
+<tr>
+<th>Dato</th>
+<th>Campo técnico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Año de nacimiento (para calcular la franja de edad del baremo)</td>
+<td><code>users.birth_year</code></td>
+</tr>
+<tr>
+<td>Sexo (dato imprescindible: los baremos oficiales de las oposiciones son distintos por sexo)</td>
+<td><code>users.sex</code></td>
+</tr>
+<tr>
+<td>Peso corporal (kg)</td>
+<td><code>users.weight_kg</code></td>
+</tr>
+<tr>
+<td>Altura (cm)</td>
+<td><code>users.height_cm</code></td>
+</tr>
+<tr>
+<td>Tipo de trabajo / nivel de actividad laboral</td>
+<td><code>users.work_type</code></td>
+</tr>
+<tr>
+<td>Cuerpo y convocatoria a los que opta, fecha de examen</td>
+<td><code>users.active_cuerpo_code</code>, <code>users.active_convocatoria_year</code>, <code>exams</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-datos-de-salud-y-bienestar-fisico-categoria-especial-art-9-rgpd">3.3 ⚕️ Datos de salud y bienestar físico (categoría especial — art. 9 RGPD)</h3>
+<p><strong>Declaramos expresamente que FitSync trata datos relativos a la salud.</strong> Aunque el
+objetivo de la app sea deportivo y no médico, la información sobre el estado físico,
+la fatiga, el descanso o el dolor muscular constituye un dato de salud a efectos del
+RGPD. Estos datos se tratan <strong>únicamente con el consentimiento explícito</strong> del
+usuario (véase el apartado 4).</p>
+<p>Concretamente tratamos:</p>
+<ul>
+<li><strong>Marcas y resultados en las pruebas físicas</strong> (P1–P8): valor conseguido en cada
+  prueba, condiciones de realización, protocolo seguido, historial de evaluaciones y
+  simulacros completos de oposición.
+  <em>Tablas: <code>user_tests</code>, <code>user_test_state</code>, <code>user_test_evaluations</code>, <code>simulacros</code>.</em></li>
+<li><strong>Registros de sesión de entrenamiento</strong>: ejercicios realizados, series,
+  repeticiones, cargas, RIR, esfuerzo percibido (RPE), duración, incidencias y
+  notas libres escritas por el usuario.
+  <em>Tabla: <code>session_logs</code>.</em></li>
+<li><strong>Check-in diario de bienestar</strong>: horas y calidad del sueño, estrés percibido,
+  nivel y zonas de agujetas/dolor muscular, puntuación de nutrición, variabilidad de
+  la frecuencia cardiaca (HRV/RMSSD), frecuencia cardiaca en reposo y puntuación de
+  <em>readiness</em> calculada.
+  <em>Tabla: <code>user_daily_readiness</code>.</em></li>
+<li><strong>Fase del ciclo menstrual</strong>, si la usuaria decide facilitarla, para ajustar la
+  carga de entrenamiento. Es un campo <strong>opcional</strong>: dejarlo vacío no limita el uso de
+  la app. <code>[PENDIENTE: confirmar si este campo está expuesto en la interfaz de la
+  versión que se publica; si no lo está, eliminar este punto de la política]</code>
+  <em>Campo: <code>user_daily_readiness.menstrual_phase</code>.</em></li>
+<li><strong>Carga y fatiga fisiológica calculadas</strong>: ATL (carga aguda), CTL (carga crónica),
+  TSB (balance de estrés), índice de fatiga por grupo muscular, carga neural semanal.
+  <em>Tabla: <code>user_physiological_load</code>.</em></li>
+<li><strong>Lesiones, molestias o limitaciones</strong> que el usuario describa libremente en las
+  notas de sesión o en el chat con el entrenador IA.</li>
+</ul>
+<h3 id="34-datos-de-uso-de-la-aplicacion-y-contenido-generado-por-el-usuario">3.4 Datos de uso de la aplicación y contenido generado por el usuario</h3>
+<table>
+<thead>
+<tr>
+<th>Dato</th>
+<th>Detalle</th>
+<th>Dónde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Conversaciones con el entrenador IA</td>
+<td>Texto íntegro de los mensajes enviados y de las respuestas generadas</td>
+<td><code>coach_conversations</code>, <code>coach_messages</code></td>
+</tr>
+<tr>
+<td>Planes de entrenamiento generados</td>
+<td>Macrociclo, plan semanal, ajustes diarios</td>
+<td><code>macro_plan</code>, <code>weekly_plan</code>, <code>daily_plan_adjustments</code></td>
+</tr>
+<tr>
+<td>Disponibilidad y bloqueos de agenda</td>
+<td>Fechas y días de la semana en que el usuario no puede entrenar, y el motivo que indique</td>
+<td><code>user_calendar_entries</code></td>
+</tr>
+<tr>
+<td>Instalaciones deportivas del usuario</td>
+<td>Nombre que el usuario asigna al gimnasio/instalación, material disponible, horarios. <strong>No se recoge la dirección ni las coordenadas GPS</strong></td>
+<td><code>user_facilities</code></td>
+</tr>
+<tr>
+<td>Rachas, insignias y puntuaciones</td>
+<td>Constancia en check-ins y sesiones, badges obtenidos</td>
+<td><code>user_streaks</code>, <code>user_badges</code>, <code>user_score_snapshots</code></td>
+</tr>
+<tr>
+<td>Cuestionario de personalidad (BFI-2)</td>
+<td>60 respuestas tipo Likert y las puntuaciones derivadas, usados para adaptar el tono del entrenador IA. Es <strong>opcional y requiere consentimiento específico</strong> (se registra la fecha en <code>consent_given_at</code>)</td>
+<td><code>user_personality_profile</code> (+ histórico)</td>
+</tr>
+<tr>
+<td>Documentos PDF de baremos</td>
+<td>Convocatorias oficiales que el usuario sube para que la IA extraiga las tablas de puntuación. Son documentos públicos, no personales</td>
+<td>Bucket <code>bareme_pdfs</code> + <code>bareme_extraction_jobs</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="35-datos-tecnicos-y-de-analitica">3.5 Datos técnicos y de analítica</h3>
+<table>
+<thead>
+<tr>
+<th>Dato</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Analítica de producto propia</td>
+<td>Eventos de uso (pantallas abiertas, acciones realizadas), plataforma (iOS/Android) y el identificador interno del usuario. Tabla <code>analytics_events</code>. <strong>No usamos SDK de analítica de terceros ni identificadores publicitarios</strong></td>
+</tr>
+<tr>
+<td>Token de notificaciones push</td>
+<td>Identificador que asigna Firebase Cloud Messaging al dispositivo, para poder entregar recordatorios. Campos <code>users.expo_push_token</code>, <code>push_platform</code>, <code>push_token_updated_at</code></td>
+</tr>
+<tr>
+<td>Preferencias de notificación y de voz</td>
+<td><code>users.notifications_enabled</code>, <code>notifications_preferences</code>, <code>voice_settings</code></td>
+</tr>
+<tr>
+<td>Consumo de IA</td>
+<td>Función invocada, número de tokens y coste estimado, para controlar el gasto y aplicar límites. Tabla <code>ai_usage_log</code></td>
+</tr>
+<tr>
+<td>Registros técnicos del servidor</td>
+<td>Nuestro proveedor de infraestructura (Supabase) genera automáticamente logs de acceso que pueden incluir la dirección IP y la marca temporal de las peticiones, con fines de seguridad y diagnóstico</td>
+</tr>
+</tbody>
+</table>
+<h3 id="36-datos-de-suscripcion-y-pago">3.6 Datos de suscripción y pago</h3>
+<p>Durante la fase beta <strong>FitSync no cobra ni procesa pagos</strong>; el acceso premium se
+activa manualmente. Cuando se active la suscripción de pago, esta se gestionará a
+través de las plataformas de Apple y Google:</p>
+<ul>
+<li><strong>Nunca tenemos acceso a los datos de tu tarjeta ni a tus datos bancarios.</strong> El
+  cobro lo realizan íntegramente App Store o Google Play.</li>
+<li>Solo guardaremos el <strong>estado de la suscripción</strong> (activa/inactiva, producto,
+  periodo de prueba, fecha de renovación o cancelación). Tabla <code>user_subscriptions</code>.</li>
+</ul>
+<h3 id="37-datos-que-no-tratamos">3.7 Datos que NO tratamos</h3>
+<p>Para que quede claro, FitSync <strong>no</strong> recoge: ubicación (ni precisa ni aproximada),
+fotos o vídeos, grabaciones de voz o audio, contactos, calendario del dispositivo,
+identificador publicitario (IDFA / AAID), historial de navegación web, datos
+biométricos de identificación, ni datos de las categorías especiales distintos de
+los de salud descritos en el apartado 3.3.</p>
+<p>FitSync tampoco lee automáticamente datos de Apple Salud (HealthKit) ni de Google
+Health Connect en la versión que se publica. <code>[PENDIENTE: si en una versión futura se
+activa la sincronización con Apple Salud o Health Connect, hay que actualizar esta
+política ANTES de publicar esa versión y actualizar los cuestionarios de las tiendas]</code></p>
+<hr />
+<h2 id="4-finalidades-y-bases-juridicas">4. Finalidades y bases jurídicas</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Finalidad</th>
+<th>Datos utilizados</th>
+<th>Base jurídica (RGPD)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Crear y mantener tu cuenta, autenticarte y darte acceso a la app</td>
+<td>Cuenta (3.1)</td>
+<td><strong>Ejecución de un contrato</strong> — art. 6.1.b</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Calcular tu situación frente al baremo oficial de tu convocatoria y generar tus planes de entrenamiento</td>
+<td>Perfil (3.2) y salud (3.3)</td>
+<td><strong>Ejecución del contrato</strong> (art. 6.1.b) <strong>+ consentimiento explícito</strong> para los datos de salud (art. 9.2.a)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Adaptar el entrenamiento a tu estado diario (readiness, fatiga, agujetas, sueño)</td>
+<td>Salud (3.3)</td>
+<td><strong>Consentimiento explícito</strong> — art. 6.1.a y art. 9.2.a</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Ofrecerte el entrenador IA conversacional</td>
+<td>Mensajes del chat + contexto de perfil, planes y marcas (3.3, 3.4)</td>
+<td><strong>Consentimiento explícito</strong> — art. 6.1.a y art. 9.2.a. El uso del coach es voluntario</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Adaptar el tono y el estilo del entrenador a tu perfil de personalidad</td>
+<td>Cuestionario BFI-2 (3.4)</td>
+<td><strong>Consentimiento específico</strong> — art. 6.1.a. Función totalmente opcional y revocable</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Enviarte recordatorios y notificaciones (check-in, sesión, cambios de baremo, cuenta atrás del examen)</td>
+<td>Token push y preferencias (3.5)</td>
+<td><strong>Consentimiento</strong> — art. 6.1.a (permiso del sistema operativo, revocable en cualquier momento)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Entender cómo se usa la app para mejorarla y corregir errores</td>
+<td>Analítica propia (3.5)</td>
+<td><strong>Interés legítimo</strong> — art. 6.1.f (analítica propia, sin cesión a terceros ni publicidad). Puedes oponerte: apartado 8</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Garantizar la seguridad, prevenir el abuso y controlar el coste de la IA</td>
+<td>Logs técnicos, <code>ai_usage_log</code> (3.5)</td>
+<td><strong>Interés legítimo</strong> — art. 6.1.f</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Gestionar tu suscripción y cumplir obligaciones fiscales y contables</td>
+<td>Estado de suscripción (3.6)</td>
+<td><strong>Ejecución del contrato</strong> (art. 6.1.b) y <strong>obligación legal</strong> (art. 6.1.c)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Atender tus consultas y el ejercicio de tus derechos</td>
+<td>Correo electrónico y contenido de tu solicitud</td>
+<td><strong>Obligación legal</strong> — art. 6.1.c</td>
+</tr>
+</tbody>
+</table>
+<h3 id="41-sobre-el-consentimiento-para-los-datos-de-salud">4.1 Sobre el consentimiento para los datos de salud</h3>
+<p>Los datos descritos en el apartado 3.3 son <strong>categoría especial</strong> conforme al artículo
+9 del RGPD. Solo los tratamos porque <strong>tú nos das tu consentimiento explícito</strong> al
+activar estas funciones dentro de la app.</p>
+<ul>
+<li>El consentimiento es <strong>libre</strong>: puedes usar FitSync sin rellenar el check-in diario
+  ni el cuestionario de personalidad.</li>
+<li>El consentimiento es <strong>revocable en cualquier momento</strong>, sin que ello afecte a la
+  licitud del tratamiento anterior. Retirarlo puede impedir que la app siga
+  personalizando tus planes.</li>
+</ul>
+<p><code>[PENDIENTE: verificar que la app muestra efectivamente una pantalla de consentimiento
+explícito e informado (casilla NO premarcada + enlace a esta política) antes del
+primer tratamiento de datos de salud. Si hoy no existe, es un requisito legal a
+implementar antes de publicar.]</code></p>
+<h3 id="42-decisiones-automatizadas-y-elaboracion-de-perfiles">4.2 Decisiones automatizadas y elaboración de perfiles</h3>
+<p>FitSync <strong>elabora perfiles</strong>: a partir de tus marcas, tu check-in diario y tu carga
+acumulada, el sistema calcula automáticamente tu <em>readiness</em>, tu carga fisiológica y
+tus proyecciones de rendimiento, y genera planes de entrenamiento personalizados.</p>
+<p>Estas decisiones <strong>no producen efectos jurídicos ni te afectan significativamente de
+modo similar</strong> en el sentido del artículo 22 del RGPD: son recomendaciones
+deportivas que puedes ignorar, editar o sustituir en todo momento. La app te permite
+modificar manualmente cualquier sesión propuesta.</p>
+<p><strong>FitSync no es un producto sanitario ni sustituye el consejo de un médico, un
+fisioterapeuta o un preparador físico titulado.</strong> Consulta a un profesional antes de
+iniciar un programa de entrenamiento intenso.</p>
+<hr />
+<h2 id="5-encargados-del-tratamiento-y-terceros">5. Encargados del tratamiento y terceros</h2>
+<p>No vendemos tus datos. No los cedemos a anunciantes ni a <em>data brokers</em>. No
+realizamos publicidad ni seguimiento entre aplicaciones (<em>tracking</em>).</p>
+<p>Para poder prestar el servicio nos apoyamos en los siguientes proveedores, que actúan
+como <strong>encargados del tratamiento</strong> por cuenta nuestra y bajo contrato:</p>
+<table>
+<thead>
+<tr>
+<th>Proveedor</th>
+<th>Servicio prestado</th>
+<th>Datos a los que accede</th>
+<th>Ubicación del tratamiento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Supabase Inc.</strong></td>
+<td>Base de datos, autenticación, almacenamiento de archivos y funciones de servidor. Es donde reside toda tu información</td>
+<td>Todos los datos de los apartados 3.1–3.6</td>
+<td>Servidores en la <strong>Unión Europea</strong> (AWS, región <code>eu-central-1</code>, Fráncfort, Alemania). El soporte técnico del proveedor, con sede en EE. UU., puede acceder puntualmente</td>
+</tr>
+<tr>
+<td><strong>Anthropic PBC</strong></td>
+<td>Modelos de IA (Claude) que generan los planes de entrenamiento, las respuestas del entrenador, la revisión semanal y la extracción de baremos desde PDF</td>
+<td>El texto de tus mensajes al coach y el contexto necesario (perfil, marcas, plan, readiness). <strong>No se envía tu email ni tu nombre</strong>: el contexto se identifica con un identificador interno</td>
+<td>Estados Unidos</td>
+</tr>
+<tr>
+<td><strong>Google Ireland Ltd. / Google LLC (Firebase Cloud Messaging)</strong></td>
+<td>Entrega técnica de las notificaciones push al dispositivo</td>
+<td>Token del dispositivo y contenido de la notificación</td>
+<td>Unión Europea y Estados Unidos</td>
+</tr>
+<tr>
+<td><strong>Apple Inc. / Google LLC (App Store, Google Play, TestFlight)</strong></td>
+<td>Distribución de la app, gestión de las suscripciones y del programa de pruebas beta</td>
+<td>Correo electrónico del tester (TestFlight/pruebas cerradas) y datos de la transacción, que estas plataformas tratan como responsables independientes conforme a sus propias políticas</td>
+<td>Estados Unidos y Unión Europea</td>
+</tr>
+<tr>
+<td><strong>RevenueCat Inc.</strong></td>
+<td>Gestión del estado de las suscripciones. <strong>No activo durante la fase beta</strong></td>
+<td>Identificador de suscriptor y estado de la suscripción</td>
+<td>Estados Unidos</td>
+</tr>
+</tbody>
+</table>
+<p><code>[PENDIENTE: firmar/aceptar el DPA (Data Processing Addendum) de Supabase, Anthropic,
+Google Firebase y RevenueCat, y conservar copia. Verificar la lista de subencargados
+de cada uno.]</code></p>
+<h3 id="51-transferencias-internacionales">5.1 Transferencias internacionales</h3>
+<p>Los datos se almacenan en la Unión Europea. Sin embargo, algunas de las operaciones
+descritas implican transferir datos a <strong>Estados Unidos</strong>:</p>
+<ul>
+<li>El <strong>entrenador IA y la generación de planes</strong>, porque las peticiones se procesan en
+  la infraestructura de Anthropic.</li>
+<li>La <strong>entrega de notificaciones push</strong>, a través de Firebase Cloud Messaging.</li>
+<li>La <strong>gestión de suscripciones y la distribución de la app</strong>, a través de Apple,
+  Google y (en el futuro) RevenueCat.</li>
+</ul>
+<p>Estas transferencias se amparan en las <strong>Cláusulas Contractuales Tipo</strong> aprobadas por
+la Comisión Europea (art. 46.2.c RGPD) y, cuando resulta aplicable, en el <strong>Marco de
+Privacidad de Datos UE-EE. UU.</strong> (decisión de adecuación de la Comisión Europea de 10
+de julio de 2023), complementadas con medidas técnicas adicionales como el cifrado en
+tránsito y la minimización del contexto enviado.</p>
+<p>Puedes solicitarnos una copia de las garantías aplicadas escribiendo a
+<code>[PENDIENTE: email de contacto]</code>.</p>
+<h3 id="52-uso-de-tus-datos-para-entrenar-modelos-de-ia">5.2 Uso de tus datos para entrenar modelos de IA</h3>
+<p><strong>Tus datos no se utilizan para entrenar modelos de inteligencia artificial.</strong> Las
+peticiones que FitSync envía a la API de Anthropic se realizan bajo condiciones
+comerciales que excluyen el uso de las entradas y salidas para el entrenamiento de
+sus modelos. <code>[PENDIENTE: confirmar y documentar esta afirmación contra los términos
+comerciales vigentes de Anthropic antes de publicar.]</code></p>
+<hr />
+<h2 id="6-plazos-de-conservacion">6. Plazos de conservación</h2>
+<table>
+<thead>
+<tr>
+<th>Categoría</th>
+<th>Plazo de conservación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cuenta, perfil, marcas, planes, check-ins y conversaciones con el coach</td>
+<td>Mientras la cuenta permanezca activa</td>
+</tr>
+<tr>
+<td>Todos los datos anteriores, tras solicitar la baja</td>
+<td>Se eliminan en un plazo máximo de <strong>30 días</strong> desde la solicitud</td>
+</tr>
+<tr>
+<td>Copias de seguridad</td>
+<td>Las copias pueden retener datos ya eliminados hasta <strong>30 días</strong> adicionales, tras los cuales se sobrescriben</td>
+</tr>
+<tr>
+<td>Perfil de personalidad (BFI-2)</td>
+<td>Se elimina inmediatamente, junto con su histórico, cuando lo solicitas desde la propia app</td>
+</tr>
+<tr>
+<td>Registros técnicos del servidor (incluida la IP)</td>
+<td><code>[PENDIENTE: confirmar la retención de logs configurada en Supabase; el estándar del proveedor es de 1 a 7 días en el plan gratuito y hasta 90 días en planes de pago]</code></td>
+</tr>
+<tr>
+<td>Analítica de producto (<code>analytics_events</code>)</td>
+<td><code>[PENDIENTE: decidir plazo — propuesta: 24 meses, con borrado o anonimización automática posterior]</code></td>
+</tr>
+<tr>
+<td>Registro de consumo de IA (<code>ai_usage_log</code>)</td>
+<td><code>[PENDIENTE: decidir plazo — propuesta: 24 meses]</code></td>
+</tr>
+<tr>
+<td>Datos de facturación y suscripción</td>
+<td>Durante la vigencia de la relación y, después, el plazo legal de prescripción: <strong>4 años</strong> en materia tributaria y <strong>6 años</strong> conforme al Código de Comercio</td>
+</tr>
+<tr>
+<td>Cuentas inactivas</td>
+<td><code>[PENDIENTE: decidir si se eliminan automáticamente las cuentas sin actividad tras un periodo — propuesta: aviso a los 24 meses y borrado a los 36]</code></td>
+</tr>
+</tbody>
+</table>
+<p>Transcurridos estos plazos, los datos se eliminan o se anonimizan de forma
+irreversible.</p>
+<hr />
+<h2 id="7-seguridad">7. Seguridad</h2>
+<p>Aplicamos, entre otras, las siguientes medidas:</p>
+<ul>
+<li><strong>Cifrado en tránsito</strong> (HTTPS/TLS) en todas las comunicaciones entre la app y el
+  servidor.</li>
+<li><strong>Cifrado en reposo</strong> de la base de datos, gestionado por el proveedor de
+  infraestructura.</li>
+<li><strong>Row Level Security (RLS)</strong> en PostgreSQL: cada usuario solo puede leer y escribir
+  sus propias filas; el aislamiento se aplica en la propia base de datos y no depende
+  únicamente del código de la app.</li>
+<li><strong>Contraseñas almacenadas mediante hash</strong>, nunca en texto claro.</li>
+<li><strong>Claves de servicio con privilegios elevados</strong> custodiadas exclusivamente en el
+  entorno de servidor y nunca incluidas en la aplicación distribuida.</li>
+<li>Acceso a los datos limitado al responsable del tratamiento.</li>
+</ul>
+<p>Ningún sistema es infalible. Si se produjera una violación de seguridad que suponga
+un alto riesgo para tus derechos, te lo comunicaremos y lo notificaremos a la Agencia
+Española de Protección de Datos en un plazo de 72 horas, conforme a los artículos 33
+y 34 del RGPD.</p>
+<hr />
+<h2 id="8-tus-derechos">8. Tus derechos</h2>
+<p>Puedes ejercer en cualquier momento los siguientes derechos:</p>
+<table>
+<thead>
+<tr>
+<th>Derecho</th>
+<th>Qué significa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Acceso</strong></td>
+<td>Obtener confirmación de si tratamos tus datos y recibir una copia de ellos</td>
+</tr>
+<tr>
+<td><strong>Rectificación</strong></td>
+<td>Corregir datos inexactos o incompletos (puedes editar tu perfil directamente en la app)</td>
+</tr>
+<tr>
+<td><strong>Supresión ("derecho al olvido")</strong></td>
+<td>Solicitar que eliminemos tu cuenta y todos tus datos</td>
+</tr>
+<tr>
+<td><strong>Portabilidad</strong></td>
+<td>Recibir tus datos en un formato estructurado, de uso común y lectura mecánica (te los entregamos en JSON o CSV) y solicitar su transmisión a otro responsable</td>
+</tr>
+<tr>
+<td><strong>Oposición</strong></td>
+<td>Oponerte al tratamiento basado en nuestro interés legítimo, en particular a la analítica de producto</td>
+</tr>
+<tr>
+<td><strong>Limitación</strong></td>
+<td>Solicitar que suspendamos el tratamiento mientras se resuelve una impugnación</td>
+</tr>
+<tr>
+<td><strong>Retirada del consentimiento</strong></td>
+<td>Retirar en cualquier momento el consentimiento prestado para los datos de salud, el coach IA, el perfil de personalidad o las notificaciones, sin efecto retroactivo sobre la licitud del tratamiento anterior</td>
+</tr>
+<tr>
+<td><strong>No ser objeto de decisiones automatizadas</strong></td>
+<td>Véase el apartado 4.2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="como-ejercerlos">Cómo ejercerlos</h3>
+<ol>
+<li><strong>Desde la propia aplicación</strong>: puedes editar tu perfil, desactivar las
+   notificaciones, restablecer o eliminar tu perfil de personalidad y
+   <code>[PENDIENTE: eliminar tu cuenta — véase la nota siguiente]</code>.</li>
+<li><strong>Por correo electrónico</strong>: escribe a <code>[PENDIENTE: email de contacto]</code> indicando el
+   derecho que deseas ejercer y el correo electrónico con el que te registraste.
+   Podremos pedirte que acredites tu identidad.</li>
+<li><strong>Desde la web</strong>: <code>[PENDIENTE: URL pública del formulario de solicitud de
+   eliminación de cuenta — requisito obligatorio de Google Play para apps que
+   permiten crear cuenta]</code>.</li>
+</ol>
+<p>Responderemos en el plazo de <strong>un mes</strong> desde la recepción de la solicitud,
+prorrogable dos meses más en casos complejos, informándote de la prórroga.</p>
+<blockquote>
+<p><code>[PENDIENTE — REQUISITO BLOQUEANTE DE AMBAS TIENDAS: a fecha de esta redacción no
+se ha localizado en el código ninguna función de eliminación de cuenta ni en la app
+ni en el backend. Apple (directriz 5.1.1(v)) exige que toda app que permita crear
+una cuenta permita también eliminarla desde la propia app; Google Play exige
+además una URL web pública de solicitud de eliminación, que se declara en el
+formulario de Data safety. Hay que implementar ambas antes de enviar la app a
+revisión.]</code></p>
+</blockquote>
+<h3 id="reclamacion-ante-la-autoridad-de-control">Reclamación ante la autoridad de control</h3>
+<p>Si consideras que no hemos atendido correctamente tu solicitud, puedes presentar una
+reclamación ante la <strong>Agencia Española de Protección de Datos (AEPD)</strong>:</p>
+<ul>
+<li>C/ Jorge Juan, 6 — 28001 Madrid</li>
+<li>www.aepd.es</li>
+<li>Sede electrónica: sedeagpd.gob.es</li>
+</ul>
+<hr />
+<h2 id="9-menores-de-edad">9. Menores de edad</h2>
+<p>FitSync está dirigida a personas que preparan pruebas físicas de acceso a la función
+pública, para las que se exige normalmente la mayoría de edad.</p>
+<p><strong>La edad mínima para usar FitSync es de 16 años.</strong>
+<code>[PENDIENTE: confirmar la edad mínima elegida; el artículo 7 de la LOPDGDD española
+fija en 14 años la edad a partir de la cual el menor puede consentir por sí mismo,
+pero tratándose de datos de salud es razonable y más prudente fijar el umbral en 16 o
+en 18 años. La respuesta debe ser coherente con la clasificación por edades de App
+Store y con la sección "Público objetivo y contenido" de Google Play.]</code></p>
+<p>No recogemos conscientemente datos de menores por debajo de esa edad. Si detectamos
+que una cuenta pertenece a un menor por debajo del umbral, la eliminaremos. Si eres
+madre, padre o tutor y crees que un menor a tu cargo nos ha facilitado datos, escribe
+a <code>[PENDIENTE: email de contacto]</code> y procederemos a su supresión.</p>
+<hr />
+<h2 id="10-cambios-en-esta-politica">10. Cambios en esta política</h2>
+<p>Podemos actualizar esta política para reflejar cambios en la aplicación, en nuestros
+proveedores o en la normativa aplicable.</p>
+<ul>
+<li>La <strong>fecha de última actualización</strong> aparece siempre al principio del documento.</li>
+<li>Si el cambio es <strong>sustancial</strong> (por ejemplo, una nueva finalidad, un nuevo tipo de
+  dato o un nuevo encargado), te lo notificaremos dentro de la app o por correo
+  electrónico <strong>antes</strong> de que entre en vigor y, cuando la nueva finalidad se base en
+  el consentimiento, te pediremos uno nuevo.</li>
+<li>Mantendremos accesible el historial de versiones en
+  <code>[PENDIENTE: URL pública donde se aloja esta política]</code>.</li>
+</ul>
+<hr />
+<h2 id="11-contacto">11. Contacto</h2>
+<p>Para cualquier cuestión sobre esta política o sobre el tratamiento de tus datos:</p>
+<p><strong>Urko Lizarralde</strong> — Bilbao, España
+<code>[PENDIENTE: email de contacto]</code></p>
+<hr />
+<p><em>Documento generado el 27 de julio de 2026 a partir de la inspección del esquema de
+datos de FitSync (proyecto Supabase <code>zbmtqhipmnsztplraeqk</code>, región <code>eu-central-1</code>) y
+del código de las aplicaciones <code>fitsync-app2</code> (React Native) y <code>fitsync-flutter</code>.
+Pendiente de revisión jurídica.</em></p>
+</body>
+</html>
